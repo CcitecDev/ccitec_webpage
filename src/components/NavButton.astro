@@ -1,0 +1,39 @@
+---
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+---
+<li>
+    <a href={ href }>
+        <slot />
+    </a>
+</li>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap');
+
+    li{
+        font-family: 'Nunito', sans-serif; /* Add a fallback font */
+        font-weight: 200;
+        color: var(--blue_ccitec);
+        font-size: 1.3em;
+        transition: 0.2s ease-in-out;
+    }
+
+    li:hover {
+        font-size: 1.5em;
+        text-decoration: line-through 1px;
+    }
+
+    @media only screen and (min-width: 768px){
+        li{
+            font-size: 1em;
+        }
+        li:hover{
+            font-size: 1.1em;
+            text-decoration: underline 1px;
+        }
+    }
+</style>

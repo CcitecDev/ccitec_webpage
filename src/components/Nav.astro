@@ -1,0 +1,47 @@
+---
+import NavButton from "./NavButton.astro";
+
+---
+
+<nav class="flex h-48px bg-white w-full ml-auto mr-auto justify-between items-center px-4 py-1">
+    <img src="/logo.svg" alt="..." class="w-12">
+    <label class="switch_menu" for="menu_checkbox">
+        <input type="checkbox" name="check" id="menu_checkbox">
+        <span class="material-symbols-outlined md:hidden"><img src="/menu_FILL0_wght400_GRAD0_opsz24.svg" alt="..." class="w-10"></span>
+        <span class="material-symbols-outlined transition-transform absolute bottom-5 right-5 z-50 md:hidden" style="transform: translateX(-100vw);" id="button_logout"><img src="/logout_FILL0_wght400_GRAD0_opsz24.svg" alt="..." class="w-10"></span>
+    </label>
+    <div class=" flex absolute transition-transform bg-white w-full h-full -translate-x-full z-40 justify-center items-center top-0 left-0 md:relative md:w-4/5 md:translate-x-0 md:bg-transparent " id="menu_mobilefirst">
+        <ul class="flex flex-col items-center gap-2 md:flex-row md:justify-between md:w-full md:-ml-8">
+            <NavButton href="https://ccitec-peru.web.app/">
+                Inicio
+            </NavButton>
+            <NavButton href="https://ccitec-peru.web.app/docentes">
+                Docentes
+            </NavButton>
+            <NavButton href="https://ccitec-peru.web.app/">
+                Cursos
+            </NavButton>
+            <NavButton href="https://ccitec-peru.web.app/">
+                Diplomados
+            </NavButton>
+            <NavButton href="https://ccitec-peru.web.app/">
+                Certificados
+            </NavButton>
+            <NavButton href="https://ccitec-peru.web.app/">
+                Aula Virtual
+            </NavButton>
+        </ul>
+        <script>
+            const checkbox = document.getElementById("menu_checkbox") as HTMLInputElement;
+            const logout = document.getElementById("button_logout") as HTMLElement;
+            const menu = document.getElementById("menu_mobilefirst") as HTMLElement;
+
+            checkbox.addEventListener("click", () => {
+            const checked = checkbox.checked;
+            logout.style.transform = checked ? "translateX(0)" : "translateX(-100vw)";
+            menu.style.transform = checked ? "translateX(0)" : "translateX(-100%)";
+            });
+        </script>
+    </div>
+</nav>
+
